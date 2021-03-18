@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="I made this page to learn">
+    <meta name="keywords" content="html5, learn code, page">
+    <meta name="author" content="Miruna Arcaleanu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop Online</title>
+
+    <link rel="stylesheet" type="text/css" href="resources/main.css">
+
+    <script src="bundles/jquery/jquery-3.6.0.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="overlay hidden">
+            <div class="close-icon-wrapper">
+                <img src="assets/close.png" alt="close icon">
+            </div>
+            <div class="overlay-content-wrapper">
+                <div class="product-wrapper">
+                    
+                     <!-- <div class="single-product-image"></div>
+                    <div class="single-product">
+                        <div class="details">
+                            <div class="product-name">name</div>
+                            <div class="product-price">
+                                <div>$</div>
+                                <div>100</div>
+                            </div>
+                            <div class="sizes"> Your sizes
+                                <div>S</div>
+                                <div>M</div>
+                                <div>L</div>
+                                <div>XL</div>
+                            </div>
+
+                            <div class="categories-wrapper">
+                                <div>Details</div>
+                                <div>Order</div>
+                                <div>Payment</div>
+                            </div>
+
+                            <div class="comp-wrapper">
+                                <div class="composition">Compositon
+                                    <div></div>
+                                </div>
+                                <div class="country">Country
+                                    <div></div>
+                                </div>
+                            </div>
+
+                            <div class="care">Care
+                                <div></div>
+                            </div>
+
+                            <button>Add to cart</button>
+                        </div>
+                    </div>
+                    
+                </div> -->
+                </div>
+            </div>
+        </div>
+
+
+        <header>
+            <div class="header-image">
+                <div class="header-text">
+                    <div class="bg-title">
+                        <div>SHOP AT</div>
+                        <div>THE RIGHT SPEED</div>
+                    </div>
+                    <div class="sub-title">
+                        <div>The Winter Collection:</div>
+                        <div>Liberated movements meets seamless support</div>
+                    </div>
+                    <button class="shop">SHOP</button>
+                </div>
+
+                <div class="header-image-icon">
+                    <img src="assets/icon-piggy-bank.png" alt="piggy">
+                </div>
+            </div>
+        </header>
+
+        <nav class="menu">
+            <a class="menu-item selected" data-content="coats-container">Coats</a>
+            <a class="menu-item" data-content="dresses-container">Dresses</a>
+            <a class="menu-item" data-content="jersey-container">Jersey</a>
+            <a class="menu-item" data-content="pants-container">Pants</a>
+        </nav>
+
+        <section class="products">
+            <div class="content-wrappers">
+
+                <div class="content" id="coats-container">
+                    <div class="product-wrapper">
+                        <!-- <div class="single-product">
+                            <div class="single-product-image"></div>
+                            <div class="details">
+                                <div class="product-name">name</div>
+                                <div class="product-price">
+                                    <div>$</div>
+                                    <div>100</div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="content hidden" id="dresses-container">
+                    <div class="product-wrapper"></div>
+                </div>
+
+                <div class="content hidden" id="jersey-container">
+                    <div class="product-wrapper"></div>
+                </div>
+
+                <div class="content hidden" id="pants-container">
+                    <div class="product-wrapper"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="categories">
+            <div class="title">Categories</div>
+            <div class="types">
+                <div>Women</div>
+                <div>Men</div>
+                <div>Kids</div>
+                <div>New Collection</div>
+            </div>
+        </section>
+
+
+
+    </div>
+
+    <script src="resources/products.js"></script>
+    <script src="resources/main.js"></script>
+
+    <noscript>
+        Your browser currently does not support or has JS disabled.
+    </noscript>
+    
+</body>
+</html>
