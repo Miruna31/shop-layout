@@ -53,6 +53,7 @@ $(function() {
            if(productId[index] === singleProduct.id) {
 
             singleImage.css({backgroundImage: `url(assets/coats/${$(this).data('img')})`});
+            // poti sa iti salvezi intr-o constanta $('.details-overlay') si cele care sa repeta si sa executi find sau ce mai ai nevoie pe constantele respective
             $('.details-overlay').find('.product-name').text(singleProduct.name);
             $('.details-overlay').find('.product-price div:first-child').text(singleProduct.currency);
             $('.details-overlay').find('.product-price div:last-child').text(singleProduct.price);
