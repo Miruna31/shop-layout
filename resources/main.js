@@ -2,6 +2,7 @@
 $(function() {
     const menuItems = $('.menu').find('.menu-item');
     const productsContent= $('.content-wrappers').find('.content');
+    const productId = [];
 
     menuItems.click(function(e) {
         if(!$(this).data('content')) {
@@ -18,9 +19,9 @@ $(function() {
     const  productContentWrapper = $('#coats-container').find('.product-wrapper'),
           getproductHTML = function(productObj) {
             return `<div class="single-product" data-id=${productObj.id}>
-                        <div class="single-product-image" style="background-image: url(assets/coats/${productObj.imgUrl})"></div>
+                        <div class="single-product-image" data-img=${productObj.imgUrl} style="background-image: url(assets/coats/${productObj.imgUrl})"></div>
                         <div class="details">
-                            <div class="product-name">${productObj.name}</div>
+                            <div class="product-name" data-name= ${productObj.name}>${productObj.name}</div>
                             <div class="product-price">
                                 <div>${productObj.currency}</div>
                                  <div>${productObj.price}</div>
@@ -34,61 +35,37 @@ $(function() {
         let productObj = products.coats[i],
             productHMTL = getproductHTML(productObj);
             productContentWrapper.append(productHMTL);
+
+            productId.push(productObj.id);
+            console.log(productId);
     }
     
-    const contentWrapper = $('.overlay').find('.overlay-content-wrapper');
+    const singleImage =$('.product-wrapper-overlay').find('.single-product-overlay');
     const overlay = $('.wrapper').find('.overlay');
 
     productContentWrapper.delegate('.single-product-image', 'click', function(){
 
-        // getproductoverlayHTML = function(productObj) {
-        //     return `<div class="single-product-image" style="background-image: url(assets/coats/${productObj.imgUrl})"></div>
-        //                 <div class="single-product" data-id=${productObj.id}>
-        //                     <div class="details">
-        //                 <div class="product-name">${productObj.name}</div>
-        //                 <div class="product-price">
-        //                 <div>${productObj.currency}</div>
-        //                 <div>${productObj.price}</div>
-        //                 </div>
-        //                 <div class="sizes"> Your sizes
-        //                     <div>S</div>
-        //                     <div>M</div>
-        //                     <div>L</div>
-        //                     <div>XL</div>
-        //                 </div>
+        const currentId= $(this).parents('.single-product').data('id');
+        const index = productId.indexOf(currentId);
 
-        //                 <div class="categories-wrapper">
-        //                     <div>Details</div>
-        //                     <div>Order</div>
-        //                     <div>Payment</div>
-        //                 </div>
+       for(let i = 0; i < products.coats.length; i++){
+           let singleProduct = products.coats[i]
+           if(productId[index] === singleProduct.id) {
 
-        //                 <div class="comp-wrapper">
-        //                     <div class="composition">Compositon
-        //                         <div>${productObj.composition}</div>
-        //                     </div>
-        //                     <div class="country">Country
-        //                         <div>${productObj.country}</div>
-        //                     </div>
-        //                 </div>
-
-        //                 <div class="care">Care
-        //                     <div>${productObj.care}</div>
-        //                 </div>
-
-        //                 <button>Add to cart</button>
-        //             </div>
-        //         </div>
-        //     </div>
-        // `;
-        //   };
+            singleImage.css({backgroundImage: `url(assets/coats/${$(this).data('img')})`});
+            $('.details-overlay').find('.product-name').text(singleProduct.name);
+            $('.details-overlay').find('.product-price div:first-child').text(singleProduct.currency);
+            $('.details-overlay').find('.product-price div:last-child').text(singleProduct.price);
+            $('.comp-wrapper').find('.composition div').text(singleProduct.composition);
+            $('.comp-wrapper').find('.country div').text(singleProduct.country);
+            $('.care').find('div').text(singleProduct.care);
+           };
+       };
         overlay.fadeIn();
     });
 
     const menuIconClose = $('.overlay').find('img');
     menuIconClose.click(function(){
-        overlay.addClass('hidden');
+        overlay.fadeOut();
     });
-
-
 });
