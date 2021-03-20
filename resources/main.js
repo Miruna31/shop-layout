@@ -47,19 +47,19 @@ $(function() {
 
         const currentId= $(this).parents('.single-product').data('id');
         const index = productId.indexOf(currentId);
+        const overlayDetails = $('.details-overlay');
 
        for(let i = 0; i < products.coats.length; i++){
            let singleProduct = products.coats[i]
            if(productId[index] === singleProduct.id) {
 
             singleImage.css({backgroundImage: `url(assets/coats/${$(this).data('img')})`});
-            // poti sa iti salvezi intr-o constanta $('.details-overlay') si cele care sa repeta si sa executi find sau ce mai ai nevoie pe constantele respective
-            $('.details-overlay').find('.product-name').text(singleProduct.name);
-            $('.details-overlay').find('.product-price div:first-child').text(singleProduct.currency);
-            $('.details-overlay').find('.product-price div:last-child').text(singleProduct.price);
-            $('.comp-wrapper').find('.composition div').text(singleProduct.composition);
-            $('.comp-wrapper').find('.country div').text(singleProduct.country);
-            $('.care').find('div').text(singleProduct.care);
+            overlayDetails.find('.product-name').text(singleProduct.name);
+            overlayDetails.find('.product-price div:first-child').text(singleProduct.currency);
+            overlayDetails.find('.product-price div:last-child').text(singleProduct.price);
+            overlayDetails.find('.composition div').text(singleProduct.composition);
+            overlayDetails.find('.country div').text(singleProduct.country);
+            overlayDetails.find('.care div').text(singleProduct.care);
            };
        };
         overlay.fadeIn();
