@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 $(function() {
     const menuItems = $('.menu').find('.menu-item');
     const productsContent= $('.content-wrappers').find('.content');
@@ -33,7 +33,7 @@ $(function() {
     for(let i = 0; i < products.coats.length; i++) {
         let productObj = products.coats[i],
             productHMTL = getproductHTML(productObj);
-            productContentWrapper.append(productHMTL);
+        productContentWrapper.append(productHMTL);
     }
     
     const contentWrapper = $('.overlay').find('.overlay-content-wrapper');
