@@ -1,25 +1,23 @@
 'use strict'
 $(function() {
     const menuItems = $('.menu').find('.menu-item');
-    const productsContent= $('.content-wrappers').find('.content');
     const productId = [];
 
     menuItems.click(function(e) {
-        if(!$(this).data('content')) {
+        if(!$(this).data('product')) {
             e.preventDefault();
         }
         
         menuItems.removeClass('selected');
         $(this).addClass('selected');
 
-        productsContent.addClass('hidden');
-        $("#" + $(this).data('content')).removeClass('hidden');
+
     }); 
 
-    const  productContentWrapper = $('#coats-container').find('.product-wrapper'),
-          getproductHTML = function(productObj) {
-            return `<div class="single-product" data-id=${productObj.id}>
-                        <div class="single-product-image" data-img=${productObj.imgUrl} style="background-image: url(assets/coats/${productObj.imgUrl})"></div>
+    const productContentWrapper = $('#products-container').find('.product-wrapper'),
+          getproductHTML = function(index, productObj) {
+            return `<div class="single-product">
+                        <div class="single-product-image" data-index=${index} data-id=${productObj.id} data-img=${productObj.imgUrl} style="background-image: url(assets/${productObj.imgUrl})"></div>
                         <div class="details">
                             <div class="product-name" data-name= ${productObj.name}>${productObj.name}</div>
                             <div class="product-price">
@@ -31,37 +29,38 @@ $(function() {
                 `;
           };
 
-    for(let i = 0; i < products.coats.length; i++) {
-        let productObj = products.coats[i],
-            productHMTL = getproductHTML(productObj);
-            productContentWrapper.append(productHMTL);
+    function addProduct(currentProduct) {
+        for (let i = 0; i < products[currentProduct].length; i++) {
+            let productObj = products[currentProduct][i],
+            productHTML = getproductHTML(i, productObj);
+            productContentWrapper.append(productHTML);
 
             productId.push(productObj.id);
             console.log(productId);
+        }
     }
+
+    addProduct(menuItems.data('product'));
+
     
     const singleImage =$('.product-wrapper-overlay').find('.single-product-overlay');
     const overlay = $('.wrapper').find('.overlay');
 
     productContentWrapper.delegate('.single-product-image', 'click', function(){
+        let index = $(this).data('index');
+        let productIndex = products.coats[index];
 
-        const currentId= $(this).parents('.single-product').data('id');
-        const index = productId.indexOf(currentId);
+        console.log($(this).data().index);
+
         const overlayDetails = $('.details-overlay');
+        singleImage.css({backgroundImage: `url(assets/${$(this).data('img')})`});
+        overlayDetails.find('.product-name').text(productIndex.name);
+        overlayDetails.find('.product-price div:first-child').text(productIndex.currency);
+        overlayDetails.find('.product-price div:last-child').text(productIndex.price);
+        overlayDetails.find('.composition div').text(productIndex.composition);
+        overlayDetails.find('.country div').text(productIndex.country);
+        overlayDetails.find('.care div').text(productIndex.care);
 
-       for(let i = 0; i < products.coats.length; i++){
-           let singleProduct = products.coats[i]
-           if(productId[index] === singleProduct.id) {
-
-            singleImage.css({backgroundImage: `url(assets/coats/${$(this).data('img')})`});
-            overlayDetails.find('.product-name').text(singleProduct.name);
-            overlayDetails.find('.product-price div:first-child').text(singleProduct.currency);
-            overlayDetails.find('.product-price div:last-child').text(singleProduct.price);
-            overlayDetails.find('.composition div').text(singleProduct.composition);
-            overlayDetails.find('.country div').text(singleProduct.country);
-            overlayDetails.find('.care div').text(singleProduct.care);
-           };
-       };
         overlay.fadeIn();
     });
 

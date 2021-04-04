@@ -81,7 +81,7 @@
                         <div>The Winter Collection:</div>
                         <div>Liberated movements meets seamless support</div>
                     </div>
-                    <button class="shop">SHOP</button>
+                    <button class="shop"><a href="#products-container">SHOP</a></button>
                 </div>
 
                 <div class="header-image-icon">
@@ -91,19 +91,19 @@
         </header>
 
         <nav class="menu">
-            <a class="menu-item selected" data-content="coats-container">Coats</a>
-            <a class="menu-item" data-content="dresses-container">Dresses</a>
-            <a class="menu-item" data-content="jersey-container">Jersey</a>
-            <a class="menu-item" data-content="pants-container">Pants</a>
+            <a class="menu-item selected" data-product="coats" data-content="coats-container">Coats</a>
+            <a class="menu-item"  data-product="dresses" data-content="dresses-container">Dresses</a>
+            <a class="menu-item" data-product="jersey" data-content="jersey-container">Jersey</a>
+            <a class="menu-item" data-product="pants" data-content="pants-container">Pants</a>
         </nav>
 
         <section class="products">
             <div class="content-wrappers">
 
-                <div class="content" id="coats-container">
+                <div class="content" id="products-container">
                     <div class="product-wrapper">
                         <!-- <div class="single-product">
-                            <div class="single-product-image"></div>
+                            <div class="single-product-image data-img="coat-1.jpg" data-id="1""></div>
                             <div class="details">
                                 <div class="product-name">name</div>
                                 <div class="product-price">
@@ -112,24 +112,6 @@
                                 </div>
                             </div>
                         </div> -->
-                    </div>
-                </div>
-
-                <div class="content hidden" id="dresses-container">
-                    <div class="product-wrapper">
-                        <div class="soon">Coming soon</div>
-                    </div>
-                </div>
-
-                <div class="content hidden" id="jersey-container">
-                    <div class="product-wrapper">
-                        <div class="soon">Coming soon</div>
-                    </div>
-                </div>
-
-                <div class="content hidden" id="pants-container">
-                    <div class="product-wrapper">
-                        <div class="soon">Coming soon</div>
                     </div>
                 </div>
             </div>

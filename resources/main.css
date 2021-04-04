@@ -63,11 +63,16 @@ body, html{
     cursor: pointer;
 }
 
+.shop a{
+    text-decoration: none;
+}
+
 nav{
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 nav a{
@@ -82,33 +87,6 @@ nav a{
 .menu-item.selected{
     background-color:#f8d9e0;
     border-radius: 25px;
-}
-
-.content-wrappers{
-    position: relative;
-}
-
-.content{
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-#coats-container {
-    z-index: 4;
-}
-
-#dresses-container{
-    z-index: 3;
-}
-
-#jersey-container{
-    z-index: 2;
-}
-
-#pants-container{
-    z-index: 1;
 }
 
 .soon{
@@ -132,11 +110,11 @@ nav a{
 }
 
 .single-product{
-    width: 200px;
+    width: 250px;
 }
 
 .single-product-image{
-    height: 320px;
+    height: 350px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -166,6 +144,7 @@ nav a{
 .categories{
     height: 150px;
     padding: 0px 80px;
+    margin-top: 40px;
 }
 
 .title{
