@@ -89,20 +89,6 @@ nav a{
     border-radius: 25px;
 }
 
-.soon{
-    display: flex;
-    align-self: center;
-    font-size: 40px;
-    color: #828282;
-    animation: bounce 3s infinite;
-}
-
-@keyframes bounce {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-100px); }
-    100% { transform: translateY(0); }
-}
-
 .product-wrapper{
     height: 380px;
     display: flex;

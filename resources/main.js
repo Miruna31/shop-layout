@@ -1,19 +1,6 @@
 'use strict'
 $(function() {
     const menuItems = $('.menu').find('.menu-item');
-    const productId = [];
-
-    menuItems.click(function(e) {
-        if(!$(this).data('product')) {
-            e.preventDefault();
-        }
-        
-        menuItems.removeClass('selected');
-        $(this).addClass('selected');
-
-
-    }); 
-
     const productContentWrapper = $('#products-container').find('.product-wrapper'),
           getproductHTML = function(index, productObj) {
             return `<div class="single-product">
@@ -29,28 +16,71 @@ $(function() {
                 `;
           };
 
-    function addProduct(currentProduct) {
+        function addProduct(currentProduct) {
         for (let i = 0; i < products[currentProduct].length; i++) {
             let productObj = products[currentProduct][i],
             productHTML = getproductHTML(i, productObj);
             productContentWrapper.append(productHTML);
-
-            productId.push(productObj.id);
-            console.log(productId);
         }
     }
 
     addProduct(menuItems.data('product'));
 
+
+    menuItems.click(function(e) {
+    if(!$(this).data('product')) {
+        e.preventDefault();
+    }
     
+    menuItems.removeClass('selected');
+    $(this).addClass('selected');
+
+    let categories = $(this).data('product');
+    for(let i= 0 ; i < products[categories].length; i++){
+        let product= products[categories][i];
+        console.log(product);
+    }
+        switch(categories){
+            case 'coats':
+                if($(this).hasClass('selected')){
+                    console.log(categories);
+                    productContentWrapper.empty();
+                    addProduct(categories);
+                }
+                break;
+            case 'dresses':
+                if($(this).hasClass('selected')){
+                    console.log(categories);
+                    productContentWrapper.empty();
+                    addProduct(categories);
+                }
+                break;
+            case 'jersey':
+                if($(this).hasClass('selected')){
+                    console.log(categories);
+                    productContentWrapper.empty();
+                    addProduct(categories);
+                }
+                break;
+            case 'pants':
+                if($(this).hasClass('selected')){
+                    console.log(categories);
+                    productContentWrapper.empty();
+                    addProduct(categories);
+                }
+                break;
+        };
+});
+
     const singleImage =$('.product-wrapper-overlay').find('.single-product-overlay');
     const overlay = $('.wrapper').find('.overlay');
 
     productContentWrapper.delegate('.single-product-image', 'click', function(){
+        let categories = menuItems.data('product');
         let index = $(this).data('index');
-        let productIndex = products.coats[index];
+        let productIndex = products[categories][index];
 
-        console.log($(this).data().index);
+        console.log(categories);
 
         const overlayDetails = $('.details-overlay');
         singleImage.css({backgroundImage: `url(assets/${$(this).data('img')})`});
@@ -68,4 +98,5 @@ $(function() {
     menuIconClose.click(function(){
         overlay.fadeOut();
     });
+
 });

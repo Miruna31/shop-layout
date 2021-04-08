@@ -51,7 +51,7 @@ let products = {
             imgUrl: "dresses/dress-1.jpg",
             composition: "65% Rayon, 30% Nylon, 5% Spandex.",
             country: "U.S.A",
-            care:"Curve-loving stretch knit hugs your figure from a high, rounded neckline down to a midi-length hem. Long sleeves frame an ultra-deep V"
+            care:"Machine washable. Curve-loving stretch knit hugs your figure from a high, rounded neckline down to a midi-length hem."
         },
         {
             id: 2,
@@ -71,17 +71,17 @@ let products = {
             imgUrl: "dresses/dress-3.jpg",
             composition: "100% Rayon",
             country: "Spain",
-            care:"Get swept up in the swirling blue print as you marvel at the Lulus Mandala Daydream Blue Print Maxi Dress! Lightweight woven fabric forms this long sleeve stunner with a deep V-neckline, and tying sash at the waist"
+            care:"Machine washable. Get swept up in the swirling blue print. Lightweight woven fabric forms this long sleeve stunner with a deep V-neckline."
         },
         {
             id: 4,
             name:"Summer Dress",
             currency: "$",
             price: "78",
-            imgUrl: "dresses/dress-5.jpg",
+            imgUrl: "dresses/dress-4.jpg",
             composition: "100% polyester",
             country: "UK",
-            care:"Breezy chiffon with a cream, taupe, and green floral print sweeps over a strappy, ruffled wrap bodice with tying waist. High-low skirt with front slit."
+            care:"Breezy chiffon with a cream, taupe, and green floral print sweeps over a strappy."
         }
     ],
 
@@ -94,7 +94,7 @@ let products = {
             imgUrl: "jersey/jersey-1.jpg",
             composition: "95% viscose 5% elastane",
             country: "UK",
-            care:"Machine washable. Everything about it is relaxed. There’s the deep V-neck – front and back – for a start. Then the oversized fit, with ribbed cuffs to pull over your hands or push up to your elbows."
+            care:"Machine washable. Everything about it is relaxed. Then the oversized fit, with ribbed cuffs to pull over your hands."
         },
         {
             id: 2,
@@ -104,7 +104,7 @@ let products = {
             imgUrl: "jersey/jersey-2.jpg",
             composition: "100% cotton",
             country: "Poland",
-            care:"Machine washable. Made from a soft and tactile cotton-blend fabric, our relaxed V-neck jumpsuit is an easy-to-wear staple you'll turn to again and again. "
+            care:"Machine washable. Made from a soft and tactile cotton-blend fabric, our relaxed V-neck jumpsuit . "
         },
         {
             id: 3,
@@ -114,7 +114,7 @@ let products = {
             imgUrl: "jersey/jersey-3.jpg",
             composition: "100% cotton",
             country: "Belgium",
-            care:"Easy to chuck on, this above-the-knee T-shirt dress offers maximum impact for minimum effort. It has a relaxed fit and features a simple crew neck for comfort. Frill detailing at the sleeve opening makes the look feminine as well as casual."
+            care:"Easy to chuck on, offers maximum impact for minimum effort. It has a relaxed fit and features a crew neck for comfort."
         },
         {
             id: 4,
@@ -124,7 +124,7 @@ let products = {
             imgUrl: "jersey/jersey-4.jpg",
             composition: "95% viscose 5% elastane",
             country: "Finland",
-            care:"Machine washable. Ways to look instantly put together: red lipstick, sunglasses and our semi-fitted wrap dress. It's a feminine choice, with frills at the capped sleeves. The tie waist creates a flattering finish"
+            care:"Machine washable. Ways to look instantly put together. It's a feminine choice, with frills at the capped sleeves."
         }
     ],
 
@@ -137,7 +137,7 @@ let products = {
             imgUrl: "pants/pant-1.jpg",
             composition: "100% Rayon",
             country: "Austria",
-            care:"Hand Wash Cold. Medium-weight woven fabric shapes these chic pants that feature a high-waisted fit, belt loops, side seam pockets, and decorative back welt pockets. "
+            care:"Hand Wash Cold. Medium-weight woven fabric shapes pants that feature a high-waisted fit, belt loops, side seam pockets. "
         },
         {
             id: 2,
@@ -147,7 +147,7 @@ let products = {
             imgUrl: "pants/pant-2.jpg",
             composition: "95% Polyester, 5% Spandex.",
             country: "Belgium",
-            care:"Hand Wash Cold.  Sleek woven satin shapes these mid-rise jogger pants that have belt loops, a hidden clasp and zipper fly, and tapered pant legs with elastic hems. Diagonal front pockets, side cargo pockets, and decorative back welt pockets lend a trendy utility-inspired vibe."
+            care:"Hand Wash Cold. Sleek woven satin jogger pants that have belt loops, and tapered pant legs with elastic hems."
         },
         {
             id: 3,
@@ -157,7 +157,7 @@ let products = {
             imgUrl: "pants/pant-3.jpg",
             composition: "Lining: 100%",
             country: "Germany",
-            care:"Lightweight woven fabric, with a black and white houndstooth pattern throughout, shapes a high rise fit and straight pant legs that end at ankle-length hems. Diagonal front pockets and decorative back welt pockets."
+            care:"Lightweight woven fabric, with a black and white houndstooth pattern throughout, shapes a high rise fit."
         },
         {
             id: 4,
@@ -167,7 +167,7 @@ let products = {
             imgUrl: "pants/pant-4.jpg",
             composition: "100% Cotton.",
             country: "Portugal",
-            care:"These Boho pants have a high-waisted fit with an elasticized waistband and a cool, crochet-inspired pointelle knit construction. "
+            care:"Cold washed. These Boho pants have a high-waisted fit with an elasticized waistband. "
         }
     ]
 }
