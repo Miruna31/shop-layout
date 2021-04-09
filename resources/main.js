@@ -32,45 +32,45 @@ $(function() {
         e.preventDefault();
     }
     
-    menuItems.removeClass('selected');
-    $(this).addClass('selected');
+        menuItems.removeClass('selected');
+        $(this).addClass('selected');
 
-    let categories = $(this).data('product');
-    for(let i= 0 ; i < products[categories].length; i++){
-        let product= products[categories][i];
-        console.log(product);
-    }
-        switch(categories){
-            case 'coats':
-                if($(this).hasClass('selected')){
-                    console.log(categories);
-                    productContentWrapper.empty();
-                    addProduct(categories);
-                }
-                break;
-            case 'dresses':
-                if($(this).hasClass('selected')){
-                    console.log(categories);
-                    productContentWrapper.empty();
-                    addProduct(categories);
-                }
-                break;
-            case 'jersey':
-                if($(this).hasClass('selected')){
-                    console.log(categories);
-                    productContentWrapper.empty();
-                    addProduct(categories);
-                }
-                break;
-            case 'pants':
-                if($(this).hasClass('selected')){
-                    console.log(categories);
-                    productContentWrapper.empty();
-                    addProduct(categories);
-                }
-                break;
-        };
-});
+        let categories = $(this).data('product');
+        for(let i= 0 ; i < products[categories].length; i++){
+            let product= products[categories][i];
+            console.log(product);
+        }
+            switch(categories){
+                case 'coats':
+                    if($(this).hasClass('selected')){
+                        console.log(categories);
+                        productContentWrapper.empty();
+                        addProduct(categories);
+                    }
+                    break;
+                case 'dresses':
+                    if($(this).hasClass('selected')){
+                        console.log(categories);
+                        productContentWrapper.empty();
+                        addProduct(categories);
+                    }
+                    break;
+                case 'jersey':
+                    if($(this).hasClass('selected')){
+                        console.log(categories);
+                        productContentWrapper.empty();
+                        addProduct(categories);
+                    }
+                    break;
+                case 'pants':
+                    if($(this).hasClass('selected')){
+                        console.log(categories);
+                        productContentWrapper.empty();
+                        addProduct(categories);
+                    }
+                    break;
+            };
+    });
 
     const singleImage =$('.product-wrapper-overlay').find('.single-product-overlay');
     const overlay = $('.wrapper').find('.overlay');
