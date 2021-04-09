@@ -1,6 +1,7 @@
 'use strict'
 $(function() {
     const menuItems = $('.menu').find('.menu-item');
+    const productArr = [];
     const productContentWrapper = $('#products-container').find('.product-wrapper'),
           getproductHTML = function(index, productObj) {
             return `<div class="single-product">
@@ -36,51 +37,40 @@ $(function() {
         $(this).addClass('selected');
 
         let categories = $(this).data('product');
-        for(let i= 0 ; i < products[categories].length; i++){
-            let product= products[categories][i];
-            console.log(product);
-        }
-            switch(categories){
-                case 'coats':
-                    if($(this).hasClass('selected')){
-                        console.log(categories);
-                        productContentWrapper.empty();
-                        addProduct(categories);
-                    }
-                    break;
-                case 'dresses':
-                    if($(this).hasClass('selected')){
-                        console.log(categories);
-                        productContentWrapper.empty();
-                        addProduct(categories);
-                    }
-                    break;
-                case 'jersey':
-                    if($(this).hasClass('selected')){
-                        console.log(categories);
-                        productContentWrapper.empty();
-                        addProduct(categories);
-                    }
-                    break;
-                case 'pants':
-                    if($(this).hasClass('selected')){
-                        console.log(categories);
-                        productContentWrapper.empty();
-                        addProduct(categories);
-                    }
-                    break;
-            };
+        switch(categories){
+            case 'coats':
+                    console.log(categories);
+                    productContentWrapper.empty();
+                    addProduct(categories);
+                break;
+            case 'dresses':
+                    console.log(categories);
+                    productContentWrapper.empty();
+                    addProduct(categories);
+                break;
+            case 'jersey':
+                    console.log(categories);
+                    productContentWrapper.empty();
+                    addProduct(categories);
+                break;
+            case 'pants':
+                    console.log(categories);
+                    productContentWrapper.empty();
+                    addProduct(categories);
+                break;
+        };
     });
 
     const singleImage =$('.product-wrapper-overlay').find('.single-product-overlay');
     const overlay = $('.wrapper').find('.overlay');
 
     productContentWrapper.delegate('.single-product-image', 'click', function(){
-        let categories = menuItems.data('product');
+        let categories = menuItems.data().product;
         let index = $(this).data('index');
         let productIndex = products[categories][index];
 
         console.log(categories);
+        console.log($(this).data());
 
         const overlayDetails = $('.details-overlay');
         singleImage.css({backgroundImage: `url(assets/${$(this).data('img')})`});
@@ -90,7 +80,6 @@ $(function() {
         overlayDetails.find('.composition div').text(productIndex.composition);
         overlayDetails.find('.country div').text(productIndex.country);
         overlayDetails.find('.care div').text(productIndex.care);
-
         overlay.fadeIn();
     });
 
