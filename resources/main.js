@@ -1,11 +1,11 @@
 'use strict'
 $(function() {
     const menuItems = $('.menu').find('.menu-item');
-    const productArr = [];
+    let categories = menuItems.data('product');
     const productContentWrapper = $('#products-container').find('.product-wrapper'),
           getproductHTML = function(index, productObj) {
             return `<div class="single-product">
-                        <div class="single-product-image" data-index=${index} data-id=${productObj.id} data-img=${productObj.imgUrl} style="background-image: url(assets/${productObj.imgUrl})"></div>
+                        <div class="single-product-image" data-index=${index} data-product=${categories} data-id=${productObj.id} data-img=${productObj.imgUrl} style="background-image: url(assets/${productObj.imgUrl})"></div>
                         <div class="details">
                             <div class="product-name" data-name= ${productObj.name}>${productObj.name}</div>
                             <div class="product-price">
@@ -17,16 +17,15 @@ $(function() {
                 `;
           };
 
-        function addProduct(currentProduct) {
-        for (let i = 0; i < products[currentProduct].length; i++) {
-            let productObj = products[currentProduct][i],
+        function addProduct(categories) {
+        for (let i = 0; i < products[categories].length; i++) {
+            let productObj = products[categories][i],
             productHTML = getproductHTML(i, productObj);
             productContentWrapper.append(productHTML);
         }
     }
 
     addProduct(menuItems.data('product'));
-
 
     menuItems.click(function(e) {
     if(!$(this).data('product')) {
@@ -65,7 +64,6 @@ $(function() {
     const overlay = $('.wrapper').find('.overlay');
 
     productContentWrapper.delegate('.single-product-image', 'click', function(){
-        let categories = menuItems.data().product;
         let index = $(this).data('index');
         let productIndex = products[categories][index];
 
