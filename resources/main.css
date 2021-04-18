@@ -38,7 +38,7 @@ body, html{
 .header-text{
     padding-top: 50px;
     color: white;
-    width: 500px;
+    width: 95%;
     padding-left: 50px;
 }
 
@@ -65,6 +65,23 @@ body, html{
 
 .shop a{
     text-decoration: none;
+    color:black;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons-shop{
+    align-self: flex-end;
+}
+
+.icons-shop a{
+    font-size: 22px;
+    margin-left: 25px;
+    cursor: pointer;
+    color: white;
 }
 
 nav{
@@ -106,6 +123,7 @@ nav a{
     background-size: 100%;
     background-position: center;
     cursor: pointer;
+    position: relative;
 }
 
 .details{
@@ -113,6 +131,17 @@ nav a{
     color: rgb(71, 68, 68);
     font-size: 13px;
     justify-content: space-between;
+}
+
+.product-title{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.product-title div:nth-child(2){
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .details .product-name{
@@ -295,6 +324,43 @@ nav a{
     padding: 5px 10px 0px 0px;
     color: #828282;
     font-size: 14px;
+}
+
+/* .favorite-icon{
+    background-image: url('../assets/icon-black.png');
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 5px;
+    right: 10px;
+    z-index: 10;
+}
+
+.favorite-icon.selected{
+    background-image: url('../assets/icon-pink.png');
+} */
+
+.favorite-btn.selected{
+    color: red;
+}
+
+.favorites-icon-wrapper{
+    position: relative;
+}
+
+.favorites-number, .in-cart-number {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #f1afad;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 15px;
+    font-size: 10px;
+    text-align: center;
+    line-height: 15px;
+    display: none;
 }
 
 .hidden{

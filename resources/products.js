@@ -71,7 +71,7 @@ let products = {
             imgUrl: "dresses/dress-3.jpg",
             composition: "100% Rayon",
             country: "Spain",
-            care:"Machine washable. Get swept up in the swirling blue print. Lightweight woven fabric forms this long sleeve stunner with a deep V-neckline."
+            care:"Machine washable. Get swept up in the swirling blue print. Lightweight woven fabric forms this long sleeve stunner."
         },
         {
             id: 4,
