@@ -120,7 +120,7 @@ $(function() {
                         let productObj = products[categories][i];
                         if(item === productObj.id) {
                             let productHMTL = getproductHTML(i, productObj);
-                            favoritesProducts.html(productHMTL);
+                            favoritesProducts.append(productHMTL);
                         }
                     }
                 });
@@ -154,7 +154,7 @@ $(function() {
     cartProductIcon.click(function() {
     const id = productContentWrapper.data('id');
     setTimeout(function() {
-        cartProductIcon.text('Product Added');
+        cartProductIcon.text('Product Added to Cart');
 
         setTimeout(function() {
             cartProductIcon.text('Add to Cart');
@@ -189,7 +189,7 @@ $(function() {
                         let productObj = products[categories][i];
                         if(item === productObj.id) {
                             let productHMTL = getproductHTML(i, productObj);
-                            cartProducts.html(productHMTL);
+                            cartProducts.append(productHMTL);
                         }
                     }
                 });

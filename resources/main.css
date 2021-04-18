@@ -342,6 +342,7 @@ nav a{
     display: flex;
     justify-content: space-evenly;
     padding-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .favorite-btn{
@@ -386,6 +387,10 @@ nav a{
     text-align: center;
     line-height: 15px;
     display: none;
+}
+
+.h1{
+    text-align: center;
 }
 
 .hidden{
