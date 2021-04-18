@@ -109,9 +109,7 @@ $(function() {
 
     favoritesHeaderIcon.click(function(e) {
         e.preventDefault();
-        console.log(1)
         if(favoritesAdded.length > 0) {
-            console.log(2)
             productContentWrapper.hide(function() {
                 favoritesAdded.forEach(function(item) {
                     let categories = productContentWrapper.data('selected-category');
@@ -138,6 +136,67 @@ $(function() {
         favoritesProducts.text('No products have been added to favorites yet.');
         $(this).hide();
         favoritesTotal.hide();
+    });
+
+
+    let inCartAdded = [];
+    const inCartTotal = $('.in-cart-number'),
+          cartContentWrapper = $('.cart-content-wrapper'),
+          cartProducts =  cartContentWrapper.find('.cart-products'),
+          cartProductIcon = $('.add'),
+          cartHeaderIcon = $('.cart-icon-wrapper'),
+          removeCartBtn = $('#removeCartBtn');
+
+    cartProductIcon.click(function(e) {
+    const id = productContentWrapper.data('id');
+    $(this).toggleClass('selected');
+    console.log(id);
+
+    if(jQuery.inArray(id, inCartAdded) === -1) {
+        inCartAdded.push(id);
+    } else {
+        inCartAdded.splice(inCartAdded.indexOf(id), 1);
+    }
+
+    console.log(inCartAdded);
+
+    if(inCartAdded.length > 0) {
+        inCartTotal.text(inCartAdded.length);
+        inCartTotal.show();
+    } else {
+        inCartTotal.hide();
+    }
+});
+
+    cartHeaderIcon.click(function(e) {
+        e.preventDefault();
+        if(inCartAdded.length > 0) {
+            productContentWrapper.hide(function() {
+                inCartAdded.forEach(function(item) {
+                    let categories = productContentWrapper.data('selected-category');
+                    for(let i = 0; i < products[categories].length; i++) {
+                        let productObj = products[categories][i];
+                        if(item === productObj.id) {
+                            let productHMTL = getproductHTML(i, productObj);
+                            cartProducts.append(productHMTL);
+                        }
+                    }
+                });
+                cartContentWrapper.show();
+            });
+        }
+        menuItems.click(function(){
+            productContentWrapper.show();
+            cartContentWrapper.hide();
+        });
+    });
+
+    removeCartBtn.click(function() {
+        inCartAdded = [];
+        console.log('cartAdded in removeCartBtn: ', inCartAdded);
+        cartProducts.text('No products have been added to the cart yet.');
+        $(this).hide();
+        inCartTotal.hide();
     });
     
 
