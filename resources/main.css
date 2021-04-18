@@ -328,7 +328,8 @@ nav a{
     font-size: 14px;
 }
 
-.favorites-content-wrapper{
+.favorites-content-wrapper,
+.cart-content-wrapper{
     position: absolute;
     background-color: white;
     top: 55%;

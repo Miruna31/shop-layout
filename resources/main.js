@@ -83,12 +83,15 @@ $(function() {
           favoritesHeaderIcon = $('.favorites-icon-wrapper'),
           removeFavoritesBtn = $('#removeFavoritesBtn');
 
-    favoritesProductIcon.click(function(e) {
-        if(!$(this).data('id')) {
-            e.preventDefault();
-        }
+    favoritesProductIcon.click(function() {
     const id = productContentWrapper.data('id');
-    $(this).toggleClass('selected');
+    setTimeout(function() {
+        favoritesProductIcon.addClass('selected');
+
+        setTimeout(function() {
+            favoritesProductIcon.removeClass('selected');
+        }, 2000);
+    }, 0);
     console.log(id);
 
     if(jQuery.inArray(id, favoritesAdded) === -1) {
@@ -117,7 +120,7 @@ $(function() {
                         let productObj = products[categories][i];
                         if(item === productObj.id) {
                             let productHMTL = getproductHTML(i, productObj);
-                            favoritesProducts.append(productHMTL);
+                            favoritesProducts.html(productHMTL);
                         }
                     }
                 });
@@ -128,6 +131,7 @@ $(function() {
             productContentWrapper.show();
             favoritesContentWrapper.hide();
         });
+        cartContentWrapper.hide();
     });
 
     removeFavoritesBtn.click(function() {
@@ -147,9 +151,16 @@ $(function() {
           cartHeaderIcon = $('.cart-icon-wrapper'),
           removeCartBtn = $('#removeCartBtn');
 
-    cartProductIcon.click(function(e) {
+    cartProductIcon.click(function() {
     const id = productContentWrapper.data('id');
-    $(this).toggleClass('selected');
+    setTimeout(function() {
+        cartProductIcon.text('Product Added');
+
+        setTimeout(function() {
+            cartProductIcon.text('Add to Cart');
+        }, 2000);
+    }, 0);
+    console.log(id);
     console.log(id);
 
     if(jQuery.inArray(id, inCartAdded) === -1) {
@@ -178,7 +189,7 @@ $(function() {
                         let productObj = products[categories][i];
                         if(item === productObj.id) {
                             let productHMTL = getproductHTML(i, productObj);
-                            cartProducts.append(productHMTL);
+                            cartProducts.html(productHMTL);
                         }
                     }
                 });
@@ -189,6 +200,7 @@ $(function() {
             productContentWrapper.show();
             cartContentWrapper.hide();
         });
+        favoritesContentWrapper.hide();
     });
 
     removeCartBtn.click(function() {
@@ -198,6 +210,4 @@ $(function() {
         $(this).hide();
         inCartTotal.hide();
     });
-    
-
 });
