@@ -6,7 +6,7 @@ $(function() {
           getproductHTML = function(index, productObj) {
             return `<div class="single-product">
                         <div class="single-product-image" data-index=${index} data-product=${categories} data-id=${productObj.id} data-img=${productObj.imgUrl} style="background-image: url(assets/${productObj.imgUrl})">
-                        <div class="favorite-icon"></div></div>
+                        </div>
                         <div class="details">
                             <div class="product-name" data-name= ${productObj.name}>${productObj.name}</div>
                             <div class="product-price">
@@ -49,10 +49,12 @@ $(function() {
 
     productContentWrapper.delegate('.single-product-image', 'click', function(){
         let index = $(this).data('index');
+        let id =$(this).data('id');
         let categories = productContentWrapper.data('selected-category');
         let productIndex = products[categories][index];
 
         console.log(categories);
+        console.log(id);
         console.log(productIndex)
 
         const overlayDetails = $('.details-overlay');
@@ -64,6 +66,8 @@ $(function() {
         overlayDetails.find('.country div').text(productIndex.country);
         overlayDetails.find('.care div').text(productIndex.care);
         overlay.fadeIn();
+
+        productContentWrapper.data('id', id);
     });
 
     const menuIconClose = $('.overlay').find('img');
@@ -71,7 +75,70 @@ $(function() {
         overlay.fadeOut();
     });
 
-    
+    let favoritesAdded = [];
+    const favoritesTotal = $('.favorites-number'),
+          favoritesContentWrapper = $('.favorites-content-wrapper'),
+          favoritesProducts =  favoritesContentWrapper.find('.favorites-products'),
+          favoritesProductIcon = $('.favorite-btn'),
+          favoritesHeaderIcon = $('.favorites-icon-wrapper'),
+          removeFavoritesBtn = $('#removeFavoritesBtn');
+
+    favoritesProductIcon.click(function(e) {
+        if(!$(this).data('id')) {
+            e.preventDefault();
+        }
+    const id = productContentWrapper.data('id');
+    $(this).toggleClass('selected');
+    console.log(id);
+
+    if(jQuery.inArray(id, favoritesAdded) === -1) {
+        favoritesAdded.push(id);
+    } else {
+        favoritesAdded.splice(favoritesAdded.indexOf(id), 1);
+    }
+
+    console.log(favoritesAdded);
+
+    if(favoritesAdded.length > 0) {
+        favoritesTotal.text(favoritesAdded.length);
+        favoritesTotal.show();
+    } else {
+        favoritesTotal.hide();
+    }
+});
+
+    favoritesHeaderIcon.click(function(e) {
+        e.preventDefault();
+        console.log(1)
+        if(favoritesAdded.length > 0) {
+            console.log(2)
+            productContentWrapper.hide(function() {
+                favoritesAdded.forEach(function(item) {
+                    let categories = productContentWrapper.data('selected-category');
+                    for(let i = 0; i < products[categories].length; i++) {
+                        let productObj = products[categories][i];
+                        if(item === productObj.id) {
+                            let productHMTL = getproductHTML(i, productObj);
+                            favoritesProducts.append(productHMTL);
+                        }
+                    }
+                });
+                favoritesContentWrapper.show();
+            });
+        }
+        menuItems.click(function(){
+            productContentWrapper.show();
+            favoritesContentWrapper.hide();
+        });
+    });
+
+    removeFavoritesBtn.click(function() {
+        favoritesAdded = [];
+        console.log('favoritesAdded in removeFavoritesBtn: ', favoritesAdded);
+        favoritesProducts.text('No products have been added to favorites yet.');
+        $(this).hide();
+        favoritesTotal.hide();
+    });
     
 
 });

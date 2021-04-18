@@ -88,7 +88,7 @@ let products = {
     jersey:[
         {
             id: 1,
-            name: "V-Neck Jersey Top",
+            name: "V-Neck J. Top",
             currency: "$",
             price: "55",
             imgUrl: "jersey/jersey-1.jpg",
@@ -108,7 +108,7 @@ let products = {
         },
         {
             id: 3,
-            name: "Jersey T-Shirt Dress",
+            name: "J. T-Shirt Dress",
             currency: "$",
             price: "43",
             imgUrl: "jersey/jersey-3.jpg",
@@ -118,7 +118,7 @@ let products = {
         },
         {
             id: 4,
-            name: "Jersey Wrap Dress ",
+            name: "J. Wrap Dress ",
             currency: "$",
             price: "49",
             imgUrl: "jersey/jersey-4.jpg",
